@@ -66,3 +66,42 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+###My personal note
+
+1. Install create react app
+npm install -g create-react-app
+
+create-react-app reactcra
+
+
+2. source code of create-react-app on github :
+https://github.com/facebook/create-react-app
+
+3. To support saas, add the following to package.json dependencies
+
+ "bootstrap": "4.0.0-alpha.6",
+ "font-awesome": "^4.7.0",
+ "node-sass-chokidar": "0.0.3"
+
+then run 'npm install' to add those to this project.
+
+
+Then add the following to scripts of package.json:
+
+"build-css": "node-sass-chokidar --source-comments  --include-path ./src/sass --include-path ./node_modules src/ -o public/"
+
+Then run 'npm run build-css', you are able to get App.css in public folder.
+
+
+4. 'npm run all' to run a few scripts together.
+Add the following to dependencies:
+"npm-run-all": "^4.1.1"
+
+Then run 'npm install' to get this in this project.
+
+Replace 2 lines in scripts in package.json:
+ "start-js": "react-scripts start",
+ "start": "npm-run-all -p watch-css start-js",
+
